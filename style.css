@@ -1,0 +1,126 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  display: grid;
+  justify-content: center;
+  padding: 50px;
+}
+
+.spinner {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  overflow: hidden;
+  position: relative;
+  animation: text-color 2s ease-in-out infinite;
+}
+
+.spinner-sector {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 15px solid transparent;
+  mix-blend-mode: overlay;
+  animation: rotate var(--duration) var(--timing) infinite;
+}
+
+.spinner-sector-red {
+  border-top-color: coral;
+  --duration: 10s;
+  --timing: ease-in;
+}
+
+.spinner-sector-blue {
+  border-left-color: lightblue;
+  --duration: 1.5s;
+  --timing: ease-in;
+}
+.spinner-sector-green {
+  border-right-color: lightgreen;
+  --duration: 2.5s;
+  --timing: ease-out;
+}
+
+.spinner-2 {
+  margin-top: 5rem;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+  position: relative;
+}
+.spinner-2 > p {
+  font-size: 2rem;
+  animation: rotate 4s ease-in infinite;
+}
+.spin-sec {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 0%;
+
+  border: 15px solid transparent;
+  mix-blend-mode: overlay;
+}
+.spin-sec-blk {
+  background-color: black;
+  width: 15px;
+  height: 15px;
+
+  animation: square 2s ease-out infinite alternate;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes text-color {
+  0%,
+  100% {
+    color: rgba(0, 0, 0, 1);
+  }
+  25%,
+  75% {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    color: rgba(0, 0, 0, 0.1);
+  }
+}
+@keyframes square {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(270px);
+  }
+  50% {
+    transform: translate(270px, 270px);
+  }
+  75% {
+    transform: translateY(270px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
